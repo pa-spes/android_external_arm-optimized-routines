@@ -55,7 +55,7 @@ long double erfinvl (long double);
 long double exp10l (long double);
 long double sinpil (long double);
 
-#if __aarch64__
+#if __aarch64__ && __linux__
 # if __GNUC__ >= 5
 typedef __Float32x4_t __f32x4_t;
 typedef __Float64x2_t __f64x2_t;
@@ -207,8 +207,10 @@ svfloat32_t _ZGVsMxv_tanf (svfloat32_t, svbool_t);
 svfloat64_t _ZGVsMxv_tan (svfloat64_t, svbool_t);
 void _ZGVsMxvl4l4_sincosf (svfloat32_t, float *, float *, svbool_t);
 void _ZGVsMxvl8l8_sincos (svfloat64_t, double *, double *, svbool_t);
-# endif
+void _ZGVsMxvl4l4_sincospif (svfloat32_t, float *, float *, svbool_t);
+void _ZGVsMxvl8l8_sincospi (svfloat64_t, double *, double *, svbool_t);
+#  endif
 
-#endif
+# endif
 
 #endif
